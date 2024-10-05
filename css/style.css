@@ -1,0 +1,309 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+::selection {
+  color: coral;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(208, 177, 135);
+}
+
+p {
+  color: aliceblue;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+table {
+  width: 100%;
+  display: flex;
+  margin: 30px;
+  justify-content: center;
+}
+
+td {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  transition: 0.5s all;
+  border-radius: 30%;
+}
+
+td:hover {
+  filter: drop-shadow(0 0 10px rgb(248, 248, 248));
+}
+
+button {
+  width: 200px;
+  font-size: x-large;
+  padding: 15px 10px;
+  margin-top: 20%;
+  border: 0px;
+  background-color: rgb(255, 255, 255);
+}
+
+input {
+  width: 90%;
+  min-height: 30px;
+  height: 50px;
+  font-size: medium;
+  border: 0;
+  padding: 10px;
+  margin: 15px 0;
+  transition: 0.3s all;
+}
+
+input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.758);
+  animation: rebote 0.9s linear both;
+}
+
+
+.izquierda {
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(
+    to right,
+    rgb(24, 24, 24) 0%,
+    rgb(32, 32, 32) 100%
+  );
+  box-shadow: 0 0 80px rgb(0, 45, 0), inset 0 0 20px rgb(65, 65, 65);
+}
+
+.tablero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.derecha {
+  width: 60%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    rgb(24, 24, 24) 0%,
+    rgb(32, 32, 32) 100%
+  );
+  box-shadow: 0 0 80px rgb(0, 45, 0), inset 0 0 20px rgb(65, 65, 65);
+}
+
+.dado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.usuario {
+  color: black;
+  font-size: xx-large;
+  font-weight: bold;
+  animation: rebote 1s;
+
+}
+
+.puntos {
+  width: 90%;
+  max-height: 250px;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-Y: scroll;
+  background-color: rgba(0, 0, 0, 0.534);
+}
+
+/* Barra de scroll de puntuaciones obtenido de consulta de stack overflow */
+
+::-webkit-scrollbar { width: 15px; height: 9px;}
+::-webkit-scrollbar-button { width: 0px; height: 0px;}
+::-webkit-scrollbar-thumb { background: transparent; border: 0px none #fff; border-radius: 10px;}
+::-webkit-scrollbar-thumb:hover { background: #0a5b91;}
+::-webkit-scrollbar-thumb:active { background: #fbc525;}
+::-webkit-scrollbar-track {background: transparent;border: 0px solid #aaa; border-radius: 5px;}
+::-webkit-scrollbar-track:hover { background: #ffffff;}
+::-webkit-scrollbar-track:active { background: #ffffff;}
+::-webkit-scrollbar-corner { background: transparent;}
+
+#puntuacion {
+  width: 100%;
+  margin: 20px;
+}
+
+.resultados {
+  color: rgb(236, 236, 236);
+  width: 80%;
+  margin-left: 30px;
+  min-height: 200px;
+  font-size: large;
+}
+
+#dado {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  background: url(../assets/dr.png);
+  background-color: #00000000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  transition: 0.5s;
+}
+
+#dado:hover {
+  animation: girar .7s;
+  animation-delay: .5s;
+  cursor: pointer;
+}
+/* 
+-----------------------------------------------------------------------------------
+Animaciones
+----------------------------------------------------------------------------------- 
+*/
+
+@keyframes girar {
+  0% {
+      transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+      transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+
+@keyframes rebote {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+/* 
+-----------------------------------------------------------------------------------
+Responsive
+----------------------------------------------------------------------------------- 
+*/
+
+
+@media (max-width: 1000px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content:center;
+  }
+
+  button {
+    width: 100px;
+    font-size: medium;
+    margin: 10px;
+  }
+
+  td {
+    min-width: 15px;
+    min-height: none;
+    width: 20px;
+    height: 20px;
+  }
+
+  table {
+    padding: 0px 0;
+    margin: 0;
+    align-items: center;
+  }
+
+  input {
+    padding: 5px;
+    height: 20px;
+    font-size: medium;
+  }
+
+  .resultados {
+    margin: 0;
+    min-height: 0;
+    font-size: medium;
+  }
+  .puntos {
+    min-height: 0;
+  }
+
+  .izquierda {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .tablero {
+    height: 100%;
+    width: 100%;
+  }
+  .derecha {
+    width: 100%;
+    height: 100%;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .usuario {
+    padding: 10px 0;
+    font-size: small;
+  }
+
+  #puntuacion {
+    margin: 0;
+    height: 100%;
+    padding: 0;
+    font-size: medium;
+    color: aliceblue;
+  }
+  .dado {
+    padding: 20px 0;
+  }
+
+  #dado {
+    width: 40px;
+    height: 40px;
+  }
+}
